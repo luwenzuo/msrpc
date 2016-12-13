@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:hsf="http://www.taobao.com/hsf" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.taobao.com/hsf
+	http://www.taobao.com/hsf/hsf.xsd"
+	default-autowire="byName">
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:/conf/application.properties</value>
+			</list>
+		</property>
+	</bean>
+	<hsf:consumer id="loginService"
+		interface="com.work189.msrpc.zzdemo.service.LoginService"
+		version="1.0.0" group="com_qianpen_hsf_${spring.hsfgroup.publicqp}">
+	</hsf:consumer>
+
+</beans>

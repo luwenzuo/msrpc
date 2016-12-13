@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:hsf="http://www.work189.com/msrpc" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.work189.com/msrpc
+    http://www.work189.com/msrpc/msrpc.xsd"
+	default-autowire="byName">
+
+	<hsf:consumer id="loginService"
+		interface="com.work189.msrpc.demo.service.LoginService"
+		version="1.0.0" group="com_qianpen_hsf_dev">
+	</hsf:consumer>
+
+</beans>
